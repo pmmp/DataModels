@@ -71,7 +71,7 @@ $configuration = (new GeneratorConfiguration())
 	->addPostProcessor(new AdditionalPropertiesAccessorPostProcessor(false))
 	->generateModelDirectory(__DIR__ . '/src/immutable')
 	->generateModels(
-		new RecursiveDirectoryProvider(__DIR__ . '/schema/immutable'), __DIR__ . '/src/immutable'
+		new RecursiveDirectoryProvider(__DIR__ . '/schema/'), __DIR__ . '/src/immutable'
 	);
 
 (new ModelGenerator(
@@ -82,5 +82,5 @@ $configuration = (new GeneratorConfiguration())
 	->addPostProcessor(new AdditionalPropertiesAccessorPostProcessor(false))
 	->generateModelDirectory(__DIR__ . '/src/mutable')
 	->generateModels(
-		new RecursiveDirectoryProvider(__DIR__ . '/schema/mutable'), __DIR__ . '/src/mutable'
+		new RecursiveDirectoryProvider(__DIR__ . '/schema/'), __DIR__ . '/src/mutable'
 	);
