@@ -40,33 +40,47 @@ use const JSON_THROW_ON_ERROR;
 
 require __DIR__ . '/vendor/autoload.php';
 
-(new ModelGenerator(
-	(new GeneratorConfiguration())
-		->setNamespacePrefix('pocketmine\\datamodels')
-		->setCollectErrors(false)
-		->setImmutable(true)
-		->setOutputEnabled(true)
-		->setClassNameGenerator(new class implements ClassNameGeneratorInterface{
-			public function getClassName(string $propertyName, JsonSchema $schema, bool $isMergeClass, string $currentClassName = '') : string{
-				$className = sprintf(
-					$isMergeClass ? '%s_Merged_%s' : '%s_%s',
-					$currentClassName,
-					ucfirst(
-						isset($schema->getJson()['$id'])
-							? str_replace('#', '', $schema->getJson()['$id'])
-							: ($propertyName . ($currentClassName !== '' ? md5(json_encode($schema->getJson(), JSON_THROW_ON_ERROR)) : ''))
-					)
-				);
+$configuration = (new GeneratorConfiguration())
+	->setCollectErrors(false)
+	->setImmutable(true)
+	->setOutputEnabled(true)
+	->setClassNameGenerator(new class implements ClassNameGeneratorInterface{
+		public function getClassName(string $propertyName, JsonSchema $schema, bool $isMergeClass, string $currentClassName = '') : string{
+			$className = sprintf(
+				$isMergeClass ? '%s_Merged_%s' : '%s_%s',
+				$currentClassName,
+				ucfirst(
+					isset($schema->getJson()['$id'])
+						? str_replace('#', '', $schema->getJson()['$id'])
+						: ($propertyName . ($currentClassName !== '' ? md5(json_encode($schema->getJson(), JSON_THROW_ON_ERROR)) : ''))
+				)
+			);
 
-				$replaced = preg_replace('/\W/', '', trim($className, '_'));
-				if($replaced === null){
-					throw new \AssertionError("Pattern is valid");
-				}
-				return ucfirst($replaced);
+			$replaced = preg_replace('/\W/', '', trim($className, '_'));
+			if($replaced === null){
+				throw new \AssertionError("Pattern is valid");
 			}
-		})
+			return ucfirst($replaced);
+		}
+	});
+
+(new ModelGenerator(
+	$configuration
+		->setNamespacePrefix("pocketmine\\datamodels\\immutable")
 ))
 	->addPostProcessor(new AdditionalPropertiesAccessorPostProcessor(false))
+	->generateModelDirectory(__DIR__ . '/src/immutable')
 	->generateModels(
-		new RecursiveDirectoryProvider(__DIR__ . '/schema'), __DIR__ . '/src'
+		new RecursiveDirectoryProvider(__DIR__ . '/schema/immutable'), __DIR__ . '/src/immutable'
+	);
+
+(new ModelGenerator(
+	$configuration
+		->setImmutable(false)
+		->setNamespacePrefix("pocketmine\\datamodels\\mutable")
+))
+	->addPostProcessor(new AdditionalPropertiesAccessorPostProcessor(false))
+	->generateModelDirectory(__DIR__ . '/src/mutable')
+	->generateModels(
+		new RecursiveDirectoryProvider(__DIR__ . '/schema/mutable'), __DIR__ . '/src/mutable'
 	);
