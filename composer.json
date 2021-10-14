@@ -1,0 +1,16 @@
+{
+    "name": "pocketmine/data-models",
+    "description": "JSON schema models and generated code to validate and handle various data in PocketMine-MP",
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "wol-soft/php-json-schema-model-generator-production": "^0.17.0"
+    },
+    "require-dev": {
+        "wol-soft/php-json-schema-model-generator": "^0.21.5"
+    },
+    "license": "LGPL-3.0",
+    "autoload": {
+        "pocketmine\\datamodels": "./src/"
+    }
+}
