@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"mode": {
+			"enum": [
+				"blacklist",
+				"whitelist",
+				"allow",
+				"disallow"
+			],
+			"default": "disallow",
+			"description": "The listed plugins will either be allowed or disallowed based on this setting"
+		},
+		"plugins": {
+			"anyOf": [
+				{
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				{
+					"type": "null"
+				}
+			],
+			"default": [],
+			"description": "List of plugins to allow or disallow"
+		}
+	}
+}
