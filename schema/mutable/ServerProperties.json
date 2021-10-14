@@ -1,0 +1,122 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"motd": {
+			"type": "string",
+			"description": "Message shown on the server entry in game",
+			"default": "PocketMine-MP Server"
+		},
+		"server-ip": {
+			"type": "string",
+			"pattern": "^\\d+\\.\\d+\\.\\d+\\.\\d+$",
+			"description": "IP address to bind the server on",
+			"default": "0.0.0.0"
+		},
+		"server-port": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"description": "Port to open the server on",
+			"default": 19132
+		},
+		"white-list": {
+			"type": "boolean",
+			"description": "Whether to enable the server whitelist",
+			"default": false
+		},
+		"max-players": {
+			"type": "integer",
+			"minimum": 1,
+			"description": "Maximum number of players allowed on the server at once",
+			"default": 20
+		},
+		"gamemode": {
+			"enum": [
+				0,
+				1,
+				2,
+				3
+			],
+			"description": "ID of the global game mode of the server",
+			"default": 0
+		},
+		"force-gamemode": {
+			"type": "boolean",
+			"description": "Change players' game modes to the server game mode on join",
+			"default": false
+		},
+		"hardcore": {
+			"type": "boolean",
+			"description": "Enable hardcore mode",
+			"default": false
+		},
+		"pvp": {
+			"type": "boolean",
+			"description": "Allow players to attack other players",
+			"default": true
+		},
+		"difficulty": {
+			"enum": [
+				0,
+				1,
+				2,
+				3
+			],
+			"description": "ID of the global difficulty of the server",
+			"default": 1
+		},
+		"generator-settings": {
+			"type": "string",
+			"description": "Settings to use for generating the default world, if it isn't already generated"
+		},
+		"level-name": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Name of the world to use as default",
+			"default": "world"
+		},
+		"level-seed": {
+			"anyOf": [
+				{
+					"type": "number"
+				},
+				{
+					"type": "string"
+				}
+			],
+			"description": "Seed to use for generating the default world"
+		},
+		"level-type": {
+			"type": "string",
+			"description": "Name of the generator to use for generating the default world",
+			"default": "default"
+		},
+		"enable-query": {
+			"type": "boolean",
+			"description": "Whether to enable GS4 Query",
+			"default": true
+		},
+		"auto-save": {
+			"type": "boolean",
+			"description": "Whether to automatically save worlds and player data",
+			"default": true
+		},
+		"view-distance": {
+			"type": "integer",
+			"minimum": 2,
+			"description": "Maximum radius of chunks players can load",
+			"default": 8
+		},
+		"xbox-auth": {
+			"type": "boolean",
+			"description": "Whether to require players to be signed into Xbox Live",
+			"default": true
+		},
+		"language": {
+			"type": "string",
+			"description": "3-letter code of the language to use for server log messages"
+		}
+	}
+}
