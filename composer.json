@@ -11,6 +11,8 @@
     },
     "license": "LGPL-3.0",
     "autoload": {
-        "pocketmine\\datamodels": "./src/"
+        "psr-4": {
+            "pocketmine\\datamodels\\": "./src/"
+        }
     }
 }
