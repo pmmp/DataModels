@@ -14,17 +14,13 @@
 			"description": "The listed plugins will either be allowed or disallowed based on this setting"
 		},
 		"plugins": {
-			"anyOf": [
-				{
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				{
-					"type": "null"
-				}
+			"type": [
+				"array",
+				"null"
 			],
+			"items": {
+				"type": "string"
+			},
 			"default": [],
 			"description": "List of plugins to allow or disallow"
 		}
