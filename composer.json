@@ -7,7 +7,7 @@
         "wol-soft/php-json-schema-model-generator-production": "^0.17.0"
     },
     "require-dev": {
-        "wol-soft/php-json-schema-model-generator": "^0.21.5"
+        "wol-soft/php-json-schema-model-generator": "^0.21.7"
     },
     "license": "LGPL-3.0",
     "autoload": {

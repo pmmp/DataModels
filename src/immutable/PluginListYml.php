@@ -32,7 +32,7 @@ class PluginListYml implements JSONModelInterface
         /** @var string The listed plugins will either be allowed or disallowed based on this setting */
         protected $mode = 'disallow';
     
-        /** @var array|string[]|null List of plugins to allow or disallow */
+        /** @var string[]|null List of plugins to allow or disallow */
         protected $plugins = array (
 );
     
@@ -192,10 +192,10 @@ class PluginListYml implements JSONModelInterface
              *
              * List of plugins to allow or disallow
              *
-             * @return array|string[]|null
+             * @return string[]|null
              */
             public function getPlugins()
-                : array
+                : ?array
             {
                 
 
@@ -340,12 +340,16 @@ class PluginListYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -400,12 +404,16 @@ class PluginListYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             

@@ -2070,7 +2070,7 @@ class PocketMineYml implements JSONModelInterface
                  * @return self
                  */
                 public function setAliases(
-                    PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 $aliases
+                    ?PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 $aliases
                 ): self {
                     if ($this->aliases === $aliases) {
                         return $this;
@@ -2213,12 +2213,16 @@ class PocketMineYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -2273,12 +2277,16 @@ class PocketMineYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -2344,7 +2352,7 @@ class PocketMineYml implements JSONModelInterface
                  * @return self
                  */
                 public function setWorlds(
-                    PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 $worlds
+                    ?PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 $worlds
                 ): self {
                     if ($this->worlds === $worlds) {
                         return $this;
@@ -2487,12 +2495,16 @@ class PocketMineYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -2547,12 +2559,16 @@ class PocketMineYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             

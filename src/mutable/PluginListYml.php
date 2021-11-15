@@ -32,7 +32,7 @@ class PluginListYml implements JSONModelInterface
         /** @var string The listed plugins will either be allowed or disallowed based on this setting */
         protected $mode = 'disallow';
     
-        /** @var array|string[]|null List of plugins to allow or disallow */
+        /** @var string[]|null List of plugins to allow or disallow */
         protected $plugins = array (
 );
     
@@ -226,10 +226,10 @@ class PluginListYml implements JSONModelInterface
              *
              * List of plugins to allow or disallow
              *
-             * @return array|string[]|null
+             * @return string[]|null
              */
             public function getPlugins()
-                : array
+                : ?array
             {
                 
 
@@ -240,14 +240,14 @@ class PluginListYml implements JSONModelInterface
                 /**
                  * Set the value of plugins.
                  *
-                 * @param array|string[]|null $plugins List of plugins to allow or disallow
+                 * @param string[]|null $plugins List of plugins to allow or disallow
                  *
                  * @throws ValidationException
                  *
                  * @return self
                  */
                 public function setPlugins(
-                    array $plugins
+                    ?array $plugins
                 ): self {
                     if ($this->plugins === $plugins) {
                         return $this;
@@ -408,12 +408,16 @@ class PluginListYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -468,12 +472,16 @@ class PluginListYml implements JSONModelInterface
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             

@@ -782,12 +782,16 @@ class PocketMineYml_Settings490b0088ccf6de490a66bcb6f73452ac implements JSONMode
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -850,12 +854,16 @@ class PocketMineYml_Settings490b0088ccf6de490a66bcb6f73452ac implements JSONMode
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             

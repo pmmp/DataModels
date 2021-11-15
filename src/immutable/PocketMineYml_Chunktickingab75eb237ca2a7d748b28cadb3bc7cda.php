@@ -38,7 +38,7 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
         /** @var int Number of blocks ticked per subchunk in chunks chosen for ticking. Higher values cause trees and plants to grow faster, but with more lag. */
         protected $blocksPerSubchunkPerTick = 3;
     
-        /** @var array|int[]|null IDs of blocks to disallow ticking. */
+        /** @var int[]|null IDs of blocks to disallow ticking. */
         protected $disableBlockTicking;
     
     /** @var array */
@@ -342,7 +342,7 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
              *
              * IDs of blocks to disallow ticking.
              *
-             * @return array|int[]|null
+             * @return int[]|null
              */
             public function getDisableBlockTicking()
                 : ?array
@@ -490,12 +490,16 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
@@ -550,12 +554,16 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
                 
 
                 
-                    isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true : null;
+                    if (isset($validatorIndex)) {
+                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
+                    }
                 
             }
         } catch (\Exception $e) {
             
-                isset($validatorIndex) ? $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false : null;
+                if (isset($validatorIndex)) {
+                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
+                }
             
 
             
