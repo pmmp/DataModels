@@ -295,17 +295,13 @@
 					"default": 3
 				},
 				"disable-block-ticking": {
-					"oneOf": [
-						{
-							"type": "array",
-							"items": {
-								"type": "integer"
-							}
-						},
-						{
-							"type": "null"
-						}
+					"type": [
+						"array",
+						"null"
 					],
+					"items": {
+						"type": "integer"
+					},
 					"description": "IDs of blocks to disallow ticking.",
 					"default": null
 				}
@@ -450,76 +446,56 @@
 			}
 		},
 		"aliases": {
-			"oneOf": [
-				{
-					"type": "object",
-					"properties": {},
-					"additionalProperties": {
-						"oneOf": [
-							{
-								"type": "array",
-								"items": {
-									"type": "string"
-								}
-							},
-							{
-								"type": "string"
-							}
-						]
-					}
-				},
-				{
-					"type": "null"
-				}
+			"type": [
+				"object",
+				"null"
 			],
+			"properties": {},
+			"additionalProperties": {
+				"type": [
+					"array",
+					"string"
+				],
+				"items": {
+					"type": "string"
+				}
+			},
 			"description": "Definitions for custom command aliases."
 		},
 		"worlds": {
-			"oneOf": [
-				{
-					"type": "object",
-					"properties": {},
-					"additionalProperties": {
-						"type": "object",
-						"additionalProperties": false,
-						"properties": {
-							"seed": {
-								"anyOf": [
-									{
-										"type": "number"
-									},
-									{
-										"type": "string"
-									}
-								],
-								"description": "Seed to use for generating this world."
-							},
-							"generator": {
-								"type": "string",
-								"description": "Name of the generator to use to generate this world."
-							},
-							"preset": {
-								"type": "string",
-								"description": "Generator-specific preset info to customize the generation of the world."
-							},
-							"difficulty": {
-								"anyOf": [
-									{
-										"type": "integer"
-									},
-									{
-										"type": "string"
-									}
-								],
-								"description": "Name or ID of the difficulty level to use in this world."
-							}
-						}
-					}
-				},
-				{
-					"type": "null"
-				}
+			"type": [
+				"object",
+				"null"
 			],
+			"properties": {},
+			"additionalProperties": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"seed": {
+						"type": [
+							"string",
+							"number"
+						],
+						"description": "Seed to use for generating this world."
+					},
+					"generator": {
+						"type": "string",
+						"description": "Name of the generator to use to generate this world."
+					},
+					"preset": {
+						"type": "string",
+						"description": "Generator-specific preset info to customize the generation of the world."
+					},
+					"difficulty": {
+						"type": [
+							"string",
+							"integer"
+						],
+						"description": "Name or ID of the difficulty level to use in this world."
+					}
+				}
+			},
 			"description": "Settings for loading and/or generating multiple worlds."
 		},
 		"plugins": {

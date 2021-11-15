@@ -32,7 +32,7 @@ class PluginManifest implements JSONModelInterface
         /** @var string[]|string The PocketMine-MP API version(s) supported by the plugin. */
         protected $api;
     
-        /** @var string|string[]|null The author name */
+        /** @var string[]|string|null The author name */
         protected $author;
     
         /** @var string[]|null The author names, will be appended to `author` if both are present. */
@@ -47,7 +47,7 @@ class PluginManifest implements JSONModelInterface
         /** @var string|null Description of the plugin */
         protected $description;
     
-        /** @var string[]|string|PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b|null List of extensions (and their version constraints) required by this plugin */
+        /** @var string[]|PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c|string|null List of extensions (and their version constraints) required by this plugin */
         protected $extensions;
     
         /** @var string|null The point of loading the plugin, defaults to POSTWORLD */
@@ -74,7 +74,7 @@ class PluginManifest implements JSONModelInterface
         /** @var string|null Prefix used by the plugin's logger, defaults to plugin name */
         protected $prefix;
     
-        /** @var string[]|string|null Plugins that must load before this plugin, if available */
+        /** @var string[]|null Plugins that must load before this plugin, if available */
         protected $softdepend;
     
         /** @var string|null Classes found in src/ are assumed to be relative to this namespace prefix */
@@ -301,59 +301,14 @@ class PluginManifest implements JSONModelInterface
                     }
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'api',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
                     }
                 
@@ -397,121 +352,6 @@ class PluginManifest implements JSONModelInterface
                     }
                 
 
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'api',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'api',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
-));
-                    }
-                
-
                 return $value;
             }
         
@@ -522,10 +362,10 @@ class PluginManifest implements JSONModelInterface
              *
              * The author name
              *
-             * @return string|string[]|null
+             * @return string[]|string|null
              */
             public function getAuthor()
-                : ?string
+                
             {
                 
 
@@ -565,133 +405,14 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-                    if (!is_string($value)) {
+                    if (!is_array($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'author',
-  1 => 'string',
-));
-                    }
-                
-                    
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'author',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'author',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
                     }
                 
@@ -731,57 +452,6 @@ class PluginManifest implements JSONModelInterface
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'author',
   1 => $invalidItems_eb5312c258ddf7c6287558e0c8636669,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'author',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -1022,61 +692,14 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'depend',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
                     }
                 
@@ -1127,126 +750,11 @@ class PluginManifest implements JSONModelInterface
 ));
                     }
                 
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'depend',
-  1 => 'string',
-));
-                    }
-                
                     
                     if (is_string($value) && !preg_match(base64_decode('L15bQS1aYS16MC05IF8uLV0rJC8='), $value)) {
                         throw new \PHPModelGenerator\Exception\String\PatternException($value ?? null, ...array (
   0 => 'depend',
   1 => '^[A-Za-z0-9 _.-]+$',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'depend',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -1322,7 +830,7 @@ class PluginManifest implements JSONModelInterface
              *
              * List of extensions (and their version constraints) required by this plugin
              *
-             * @return string[]|string|PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b|null
+             * @return string[]|PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c|string|null
              */
             public function getExtensions()
                 
@@ -1353,7 +861,21 @@ class PluginManifest implements JSONModelInterface
 
                 $value = array_key_exists('extensions', $modelData) ? $modelData['extensions'] : $this->extensions;
 
-                
+                $value = (function ($value) {
+    try {
+        return is_array($value) ? new PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c($value) : $value;
+    } catch (\Exception $instantiationException) {
+        
+            throw new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
+  0 => 'extensions',
+  1 => $instantiationException,
+));
+        
+
+        
+    }
+})($value)
+;
 
                 $this->extensions = $this->validateExtensions($value, $modelData);
             }
@@ -1365,61 +887,23 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 3;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_object($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'extensions',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'object',
+    2 => 'string',
+  ),
+));
+                    }
+                
+                    
+                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c)) {
+                        throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
+  0 => 'extensions',
+  1 => 'PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c',
 ));
                     }
                 
@@ -1459,223 +943,6 @@ class PluginManifest implements JSONModelInterface
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'extensions',
   1 => $invalidItems_4a54ebc7a2db3da4bb734b218ed12c5b,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = (function ($value) {
-    try {
-        return is_array($value) ? new PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b($value) : $value;
-    } catch (\Exception $instantiationException) {
-        
-            
-                throw $instantiationException;
-            
-        
-
-        
-    }
-})($value)
-;
-
-                
-                    
-                    if (!is_object($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'extensions',
-  1 => 'object',
-));
-                    }
-                
-                    
-                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b)) {
-                        throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
-  0 => 'extensions',
-  1 => 'PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'extensions',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        if (is_object($proposedValue)) {
-            $value = (function ($value) {
-    try {
-        return is_array($value) ? new PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b($value) : $value;
-    } catch (\Exception $instantiationException) {
-        
-            
-                throw $instantiationException;
-            
-        
-
-        
-    }
-})($value)
-;
-        } else {
-            $value = $proposedValue;
-        }
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'extensions',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -1809,61 +1076,14 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'loadbefore',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
                     }
                 
@@ -1914,126 +1134,11 @@ class PluginManifest implements JSONModelInterface
 ));
                     }
                 
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'loadbefore',
-  1 => 'string',
-));
-                    }
-                
                     
                     if (is_string($value) && !preg_match(base64_decode('L15bQS1aYS16MC05IF8uLV0rJC8='), $value)) {
                         throw new \PHPModelGenerator\Exception\String\PatternException($value ?? null, ...array (
   0 => 'loadbefore',
   1 => '^[A-Za-z0-9 _.-]+$',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'loadbefore',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -2163,61 +1268,14 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_int($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'mcpe-protocol',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'int',
+  ),
 ));
                     }
                 
@@ -2257,121 +1315,6 @@ class PluginManifest implements JSONModelInterface
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'mcpe-protocol',
   1 => $invalidItems_28242b3107020f4988719be5a94509d2,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_int($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'mcpe-protocol',
-  1 => 'int',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'mcpe-protocol',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -2501,61 +1444,14 @@ class PluginManifest implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_string($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'os',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
                     }
                 
@@ -2595,121 +1491,6 @@ class PluginManifest implements JSONModelInterface
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'os',
   1 => $invalidItems_79a52c02998fb498e64c761324ea7c95,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'os',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements === 1);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\OneOfException($value ?? null, ...array (
-  0 => 'os',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -2868,10 +1649,10 @@ class PluginManifest implements JSONModelInterface
              *
              * Plugins that must load before this plugin, if available
              *
-             * @return string[]|string|null
+             * @return string[]|null
              */
             public function getSoftdepend()
-                
+                : ?array
             {
                 
 
@@ -2909,57 +1690,6 @@ class PluginManifest implements JSONModelInterface
              */
             protected function validateSoftdepend($value, array $modelData)
             {
-                
-                    
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
                 
                     
                     if (!is_array($value)) {
@@ -3013,121 +1743,6 @@ class PluginManifest implements JSONModelInterface
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'softdepend',
   1 => $invalidItems_a2ba57dcbb08410feb5d0d430d21ce67,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'softdepend',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'softdepend',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 
@@ -3230,7 +1845,7 @@ class PluginManifest implements JSONModelInterface
 
                 $value = array_key_exists('version', $modelData) ? $modelData['version'] : $this->version;
 
-                
+                $value = is_int($value) ? (float) $value : $value;
 
                 $this->version = $this->validateVersion($value, $modelData);
             }
@@ -3249,174 +1864,14 @@ class PluginManifest implements JSONModelInterface
                     }
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
+                    if (!is_string($value) && !is_float($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'version',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = is_int($value) ? (float) $value : $value;
-
-                
-                    
-                    if (!is_float($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'version',
-  1 => 'float',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'version',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'float',
+  ),
 ));
                     }
                 

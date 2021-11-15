@@ -6,7 +6,7 @@
 declare(strict_types = 1);
 
 
-    namespace pocketmine\datamodels\immutable;
+    namespace pocketmine\datamodels\mutable;
 
 
 
@@ -16,15 +16,15 @@ declare(strict_types = 1);
 
 
 /**
- * Class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda
- * @package pocketmine\datamodels\immutable 
+ * Class PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9
+ * @package pocketmine\datamodels\mutable 
  *
 
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will loose your changes if the classes
  * are re-generated.
  */
-class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSONModelInterface
+class PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9 implements JSONModelInterface
 {
     
 
@@ -47,7 +47,7 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
     
 
     /**
-     * PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda constructor.
+     * PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9 constructor.
      *
      * @param array $modelData
      *
@@ -108,7 +108,7 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
     return $additionalProperties;
 })()) {
                     throw new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda',
+  0 => 'PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9',
   1 => $additionalProperties,
 ));
                 }
@@ -145,6 +145,40 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
                 return $this->perTick;
             }
 
+            
+                /**
+                 * Set the value of per-tick.
+                 *
+                 * @param int $perTick Maximum number of chunks ticked per world per tick.
+                 *
+                 * @throws ValidationException
+                 *
+                 * @return self
+                 */
+                public function setPerTick(
+                    int $perTick
+                ): self {
+                    if ($this->perTick === $perTick) {
+                        return $this;
+                    }
+
+                    $value = $modelData['per-tick'] = $perTick;
+
+                    
+
+                    
+
+                    $value = $this->validatePerTick($value, $modelData);
+
+                    
+
+                    $this->perTick = $value;
+                    $this->_rawModelDataInput['per-tick'] = $perTick;
+
+                    
+
+                    return $this;
+                }
             
 
             /**
@@ -215,6 +249,40 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
             }
 
             
+                /**
+                 * Set the value of tick-radius.
+                 *
+                 * @param int $tickRadius Radius of chunks around each player to tick.
+                 *
+                 * @throws ValidationException
+                 *
+                 * @return self
+                 */
+                public function setTickRadius(
+                    int $tickRadius
+                ): self {
+                    if ($this->tickRadius === $tickRadius) {
+                        return $this;
+                    }
+
+                    $value = $modelData['tick-radius'] = $tickRadius;
+
+                    
+
+                    
+
+                    $value = $this->validateTickRadius($value, $modelData);
+
+                    
+
+                    $this->tickRadius = $value;
+                    $this->_rawModelDataInput['tick-radius'] = $tickRadius;
+
+                    
+
+                    return $this;
+                }
+            
 
             /**
              * Extract the value, perform validations and set the property tickRadius
@@ -284,6 +352,40 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
             }
 
             
+                /**
+                 * Set the value of blocks-per-subchunk-per-tick.
+                 *
+                 * @param int $blocksPerSubchunkPerTick Number of blocks ticked per subchunk in chunks chosen for ticking. Higher values cause trees and plants to grow faster, but with more lag.
+                 *
+                 * @throws ValidationException
+                 *
+                 * @return self
+                 */
+                public function setBlocksPerSubchunkPerTick(
+                    int $blocksPerSubchunkPerTick
+                ): self {
+                    if ($this->blocksPerSubchunkPerTick === $blocksPerSubchunkPerTick) {
+                        return $this;
+                    }
+
+                    $value = $modelData['blocks-per-subchunk-per-tick'] = $blocksPerSubchunkPerTick;
+
+                    
+
+                    
+
+                    $value = $this->validateBlocksPerSubchunkPerTick($value, $modelData);
+
+                    
+
+                    $this->blocksPerSubchunkPerTick = $value;
+                    $this->_rawModelDataInput['blocks-per-subchunk-per-tick'] = $blocksPerSubchunkPerTick;
+
+                    
+
+                    return $this;
+                }
+            
 
             /**
              * Extract the value, perform validations and set the property blocksPerSubchunkPerTick
@@ -345,13 +447,47 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
              * @return int[]|null
              */
             public function getDisableBlockTicking()
-                : ?array
+                
             {
                 
 
                 return $this->disableBlockTicking;
             }
 
+            
+                /**
+                 * Set the value of disable-block-ticking.
+                 *
+                 * @param int[]|null $disableBlockTicking IDs of blocks to disallow ticking.
+                 *
+                 * @throws ValidationException
+                 *
+                 * @return self
+                 */
+                public function setDisableBlockTicking(
+                     $disableBlockTicking
+                ): self {
+                    if ($this->disableBlockTicking === $disableBlockTicking) {
+                        return $this;
+                    }
+
+                    $value = $modelData['disable-block-ticking'] = $disableBlockTicking;
+
+                    
+
+                    
+
+                    $value = $this->validateDisableBlockTicking($value, $modelData);
+
+                    
+
+                    $this->disableBlockTicking = $value;
+                    $this->_rawModelDataInput['disable-block-ticking'] = $disableBlockTicking;
+
+                    
+
+                    return $this;
+                }
             
 
             /**
@@ -385,61 +521,14 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
+                    if (!is_array($value) && !is_null($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'disable-block-ticking',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'null',
+  ),
 ));
                     }
                 
@@ -479,121 +568,6 @@ class PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda implements JSON
                         throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'disable-block-ticking',
   1 => $invalidItems_d2ba949dec4c3d32f8a2daa5fe6c1c28,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_null($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'disable-block-ticking',
-  1 => 'null',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements === 1);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\OneOfException($value ?? null, ...array (
-  0 => 'disable-block-ticking',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                     }
                 

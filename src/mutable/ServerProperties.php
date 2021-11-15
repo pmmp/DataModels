@@ -65,7 +65,7 @@ class ServerProperties implements JSONModelInterface
         /** @var string Name of the world to use as default */
         protected $levelName = 'world';
     
-        /** @var float|string|null Seed to use for generating the default world */
+        /** @var string|float|null Seed to use for generating the default world */
         protected $levelSeed;
     
         /** @var string Name of the generator to use for generating the default world */
@@ -1457,7 +1457,7 @@ class ServerProperties implements JSONModelInterface
              *
              * Seed to use for generating the default world
              *
-             * @return float|string|null
+             * @return string|float|null
              */
             public function getLevelSeed()
                 
@@ -1471,7 +1471,7 @@ class ServerProperties implements JSONModelInterface
                 /**
                  * Set the value of level-seed.
                  *
-                 * @param float|string $levelSeed Seed to use for generating the default world
+                 * @param string|float $levelSeed Seed to use for generating the default world
                  *
                  * @throws ValidationException
                  *
@@ -1522,7 +1522,7 @@ class ServerProperties implements JSONModelInterface
 
                 $value = array_key_exists('level-seed', $modelData) ? $modelData['level-seed'] : $this->levelSeed;
 
-                
+                $value = is_int($value) ? (float) $value : $value;
 
                 $this->levelSeed = $this->validateLevelSeed($value, $modelData);
             }
@@ -1534,176 +1534,14 @@ class ServerProperties implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = is_int($value) ? (float) $value : $value;
-
-                
-                    
-                    if (!is_float($value)) {
+                    if (!is_string($value) && !is_float($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'level-seed',
-  1 => 'float',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'level-seed',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'level-seed',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'float',
+  ),
 ));
                     }
                 

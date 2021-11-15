@@ -16,7 +16,7 @@ declare(strict_types = 1);
 
 
 /**
- * Class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa
+ * Class PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58
  * @package pocketmine\datamodels\mutable 
  *
 
@@ -24,12 +24,12 @@ declare(strict_types = 1);
  * If you need to implement something in this class use inheritance. Else you will loose your changes if the classes
  * are re-generated.
  */
-class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implements JSONModelInterface
+class PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58 implements JSONModelInterface
 {
     
 
     
-        /** @var float|string|null Seed to use for generating this world. */
+        /** @var string|float|null Seed to use for generating this world. */
         protected $seed;
     
         /** @var string|null Name of the generator to use to generate this world. */
@@ -38,7 +38,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
         /** @var string|null Generator-specific preset info to customize the generation of the world. */
         protected $preset;
     
-        /** @var int|string|null Name or ID of the difficulty level to use in this world. */
+        /** @var string|int|null Name or ID of the difficulty level to use in this world. */
         protected $difficulty;
     
     /** @var array */
@@ -47,7 +47,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
     
 
     /**
-     * PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa constructor.
+     * PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58 constructor.
      *
      * @param array $modelData
      *
@@ -108,7 +108,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
     return $additionalProperties;
 })()) {
                     throw new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
-  0 => 'PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa',
+  0 => 'PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58',
   1 => $additionalProperties,
 ));
                 }
@@ -135,7 +135,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
              *
              * Seed to use for generating this world.
              *
-             * @return float|string|null
+             * @return string|float|null
              */
             public function getSeed()
                 
@@ -149,7 +149,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
                 /**
                  * Set the value of seed.
                  *
-                 * @param float|string $seed Seed to use for generating this world.
+                 * @param string|float $seed Seed to use for generating this world.
                  *
                  * @throws ValidationException
                  *
@@ -200,7 +200,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
 
                 $value = array_key_exists('seed', $modelData) ? $modelData['seed'] : $this->seed;
 
-                
+                $value = is_int($value) ? (float) $value : $value;
 
                 $this->seed = $this->validateSeed($value, $modelData);
             }
@@ -212,176 +212,14 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = is_int($value) ? (float) $value : $value;
-
-                
-                    
-                    if (!is_float($value)) {
+                    if (!is_string($value) && !is_float($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'seed',
-  1 => 'float',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'seed',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'seed',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'float',
+  ),
 ));
                     }
                 
@@ -586,7 +424,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
              *
              * Name or ID of the difficulty level to use in this world.
              *
-             * @return int|string|null
+             * @return string|int|null
              */
             public function getDifficulty()
                 
@@ -600,7 +438,7 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
                 /**
                  * Set the value of difficulty.
                  *
-                 * @param int|string $difficulty Name or ID of the difficulty level to use in this world.
+                 * @param string|int $difficulty Name or ID of the difficulty level to use in this world.
                  *
                  * @throws ValidationException
                  *
@@ -663,176 +501,14 @@ class PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa implement
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_int($value)) {
+                    if (!is_string($value) && !is_int($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'difficulty',
-  1 => 'int',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'difficulty',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'difficulty',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 
+  array (
+    0 => 'string',
+    1 => 'int',
+  ),
 ));
                     }
                 

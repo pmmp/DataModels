@@ -18,15 +18,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2
+ * Class PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082
  * @package pocketmine\datamodels\mutable 
  *
-
+ * Definitions for custom command aliases.
+ *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will loose your changes if the classes
  * are re-generated.
  */
-class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 implements JSONModelInterface
+class PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082 implements JSONModelInterface
 {
     
 
@@ -41,7 +42,7 @@ class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 implements JSONModel
     
 
     /**
-     * PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 constructor.
+     * PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082 constructor.
      *
      * @param array $modelData
      *
@@ -97,64 +98,19 @@ class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 implements JSONModel
 
             
                 
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                if (
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+                if (!is_array($value) && !is_string($value)) {
+                    throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'additional property',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
-                    }
-                
-                    $invalidItems_430c91e3f38137953c40e0a11914ca3d = [];
-                    if (is_array($value) && (function (&$items) use (&$invalidItems_430c91e3f38137953c40e0a11914ca3d) {
+                }
+            
+                $invalidItems_430c91e3f38137953c40e0a11914ca3d = [];
+                if (is_array($value) && (function (&$items) use (&$invalidItems_430c91e3f38137953c40e0a11914ca3d) {
     
 
     foreach ($items as $index => &$value) {
@@ -186,124 +142,9 @@ class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 implements JSONModel
 
     return !empty($invalidItems_430c91e3f38137953c40e0a11914ca3d);
 })($value)) {
-                        throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
+                    throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'additional property',
   1 => $invalidItems_430c91e3f38137953c40e0a11914ca3d,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'additional property',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements === 1);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                    throw new \PHPModelGenerator\Exception\ComposedValue\OneOfException($value ?? null, ...array (
-  0 => 'additional property',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                 }
             
@@ -332,7 +173,7 @@ class PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 implements JSONModel
     return !empty($invalidProperties);
 })()) {
                     throw new \PHPModelGenerator\Exception\Object\InvalidAdditionalPropertiesException($value ?? null, ...array (
-  0 => 'PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2',
+  0 => 'PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082',
   1 => $invalidProperties,
 ));
                 }

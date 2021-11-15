@@ -18,15 +18,16 @@ declare(strict_types = 1);
 
 
 /**
- * Class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b
+ * Class PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c
  * @package pocketmine\datamodels\mutable 
  *
-
+ * List of extensions (and their version constraints) required by this plugin
+ *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will loose your changes if the classes
  * are re-generated.
  */
-class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b implements JSONModelInterface
+class PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c implements JSONModelInterface
 {
     
 
@@ -41,7 +42,7 @@ class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b implements JSONM
     
 
     /**
-     * PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b constructor.
+     * PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c constructor.
      *
      * @param array $modelData
      *
@@ -97,64 +98,19 @@ class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b implements JSONM
 
             
                 
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                if (
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_array($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
+                if (!is_array($value) && !is_string($value)) {
+                    throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'additional property',
-  1 => 'array',
+  1 => 
+  array (
+    0 => 'array',
+    1 => 'string',
+  ),
 ));
-                    }
-                
-                    $invalidItems_430c91e3f38137953c40e0a11914ca3d = [];
-                    if (is_array($value) && (function (&$items) use (&$invalidItems_430c91e3f38137953c40e0a11914ca3d) {
+                }
+            
+                $invalidItems_430c91e3f38137953c40e0a11914ca3d = [];
+                if (is_array($value) && (function (&$items) use (&$invalidItems_430c91e3f38137953c40e0a11914ca3d) {
     
 
     foreach ($items as $index => &$value) {
@@ -186,124 +142,9 @@ class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b implements JSONM
 
     return !empty($invalidItems_430c91e3f38137953c40e0a11914ca3d);
 })($value)) {
-                        throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
+                    throw new \PHPModelGenerator\Exception\Arrays\InvalidItemException($value ?? null, ...array (
   0 => 'additional property',
   1 => $invalidItems_430c91e3f38137953c40e0a11914ca3d,
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_string($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'additional property',
-  1 => 'string',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements > 0);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                    throw new \PHPModelGenerator\Exception\ComposedValue\AnyOfException($value ?? null, ...array (
-  0 => 'additional property',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
 ));
                 }
             
@@ -332,7 +173,7 @@ class PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b implements JSONM
     return !empty($invalidProperties);
 })()) {
                     throw new \PHPModelGenerator\Exception\Object\InvalidAdditionalPropertiesException($value ?? null, ...array (
-  0 => 'PluginManifest_Extensions12b9155a1b150cc965e30cfd7084bb1b',
+  0 => 'PluginManifest_Extensions22237ba9fe0d3fdb792ec3b1dbfd3f7c',
   1 => $invalidProperties,
 ));
                 }
