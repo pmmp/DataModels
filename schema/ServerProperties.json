@@ -78,13 +78,9 @@
 			"default": "world"
 		},
 		"level-seed": {
-			"anyOf": [
-				{
-					"type": "number"
-				},
-				{
-					"type": "string"
-				}
+			"type": [
+				"string",
+				"number"
 			],
 			"description": "Seed to use for generating the default world"
 		},

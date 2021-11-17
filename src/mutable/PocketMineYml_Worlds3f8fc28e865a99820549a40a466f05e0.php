@@ -6,30 +6,33 @@
 declare(strict_types = 1);
 
 
-    namespace pocketmine\datamodels\immutable;
+    namespace pocketmine\datamodels\mutable;
 
 
 
     use PHPModelGenerator\Interfaces\JSONModelInterface;
 
+    use PHPModelGenerator\Exception\Object\RegularPropertyAsAdditionalPropertyException;
+
     use PHPModelGenerator\Exception\ValidationException;
 
 
 /**
- * Class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5
- * @package pocketmine\datamodels\immutable 
+ * Class PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0
+ * @package pocketmine\datamodels\mutable 
  *
-
+ * Settings for loading and/or generating multiple worlds.
+ *
  * This is an auto-implemented class implemented by the php-json-schema-model-generator.
  * If you need to implement something in this class use inheritance. Else you will loose your changes if the classes
  * are re-generated.
  */
-class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelInterface
+class PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0 implements JSONModelInterface
 {
     
 
     
-        /** @var PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa[] Collect all additional properties provided to the schema */
+        /** @var PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58[] Collect all additional properties provided to the schema */
         private $_additionalProperties = array (
 );
     
@@ -39,7 +42,7 @@ class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelI
     
 
     /**
-     * PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 constructor.
+     * PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0 constructor.
      *
      * @param array $modelData
      *
@@ -93,7 +96,7 @@ class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelI
 
             $value = (function ($value) {
     try {
-        return is_array($value) ? new PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa($value) : $value;
+        return is_array($value) ? new PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58($value) : $value;
     } catch (\Exception $instantiationException) {
         
             
@@ -116,10 +119,10 @@ class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelI
                 }
             
                 
-                if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa)) {
+                if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58)) {
                     throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'additional property',
-  1 => 'PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa',
+  1 => 'PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58',
 ));
                 }
             
@@ -148,7 +151,7 @@ class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelI
     return !empty($invalidProperties);
 })()) {
                     throw new \PHPModelGenerator\Exception\Object\InvalidAdditionalPropertiesException($value ?? null, ...array (
-  0 => 'PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5',
+  0 => 'PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0',
   1 => $invalidProperties,
 ));
                 }
@@ -176,7 +179,7 @@ class PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 implements JSONModelI
         /**
  * Get additional properties
  *
- * @return PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa[]
+ * @return PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58[]
  */
 public function getAdditionalProperties(): array
 {
@@ -189,11 +192,88 @@ public function getAdditionalProperties(): array
  *
  * @param string $property The key of the additional property
  *
- * @return PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa|null
+ * @return PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58|null
  */
-public function getAdditionalProperty(string $property): ?PocketMineYml_Additionalproperty6e6d03580d07907594710323c267b1aa
+public function getAdditionalProperty(string $property): ?PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58
 {
     return $this->_additionalProperties[$property] ?? null;
+}
+
+    
+        /**
+ * Adds or overwrites an additional property on the object
+ *
+ * @param string $property The property key of the additional property
+ * @param PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58 $value The new value of the additional property
+ *
+ * @return self
+ *
+ * @throws ValidationException
+ * @throws RegularPropertyAsAdditionalPropertyException
+ */
+public function setAdditionalProperty(
+    string $property,
+    PocketMineYml_Additionalproperty961c57e35126e2f0f7188cbffb0a2f58 $value
+): self {
+    if (in_array($property, array (
+))) {
+        throw new RegularPropertyAsAdditionalPropertyException($value, $property, self::class);
+    }
+
+    if (isset($this->_additionalProperties[$property]) && $this->_additionalProperties[$property] === $value) {
+        return $this;
+    }
+
+    
+
+    
+        
+
+        $addedProperty = [$property => $value];
+        $this->executeBaseValidators($addedProperty);
+
+        
+    
+
+    $this->_rawModelDataInput[$property] = $value;
+
+    
+
+    return $this;
+}
+
+    
+        /**
+ * Removes an additional property from the object. Returns true if the property has been removed,
+ * false if the requested additional property doesn't exist
+ *
+ * @param string $property The property key of the additional property
+ *
+ * @return bool
+ *
+ * 
+ */
+public function removeAdditionalProperty(string $property): bool
+{
+    if (isset($this->_patternProperties)) {
+        foreach ($this->_patternProperties as $patternHash => $_) {
+            if (isset($this->_patternProperties[$patternHash][$property])) {
+                unset($this->_patternProperties[$patternHash][$property]);
+                unset($this->_rawModelDataInput[$property]);
+            }
+        }
+    }
+
+    if (!array_key_exists($property, $this->_additionalProperties)) {
+        return false;
+    }
+
+    
+
+    unset($this->_rawModelDataInput[$property]);
+    unset($this->_additionalProperties[$property]);
+
+    return true;
 }
 
     

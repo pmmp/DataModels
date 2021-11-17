@@ -52,7 +52,7 @@ class PocketMineYml implements JSONModelInterface
         /** @var PocketMineYml_Chunksendingb8404e9817294c8ce93ee4f784995316 */
         protected $chunkSending;
     
-        /** @var PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda */
+        /** @var PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9 */
         protected $chunkTicking;
     
         /** @var PocketMineYml_Chunkgeneration57ad4660423fa995b13094489aaaec90 */
@@ -76,10 +76,10 @@ class PocketMineYml implements JSONModelInterface
         /** @var PocketMineYml_Console42211ae647abedcbf9abc374a9114a11 */
         protected $console;
     
-        /** @var PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2|null Definitions for custom command aliases. */
+        /** @var PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082|null Definitions for custom command aliases. */
         protected $aliases;
     
-        /** @var PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5|null Settings for loading and/or generating multiple worlds. */
+        /** @var PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0|null Settings for loading and/or generating multiple worlds. */
         protected $worlds;
     
         /** @var PocketMineYml_Plugins318fe50d7e3eb0c22bb015bb75b526dc|null */
@@ -1089,10 +1089,10 @@ class PocketMineYml implements JSONModelInterface
              *
              * 
              *
-             * @return PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda
+             * @return PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9
              */
             public function getChunkTicking()
-                : PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda
+                : PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9
             {
                 
 
@@ -1103,14 +1103,14 @@ class PocketMineYml implements JSONModelInterface
                 /**
                  * Set the value of chunk-ticking.
                  *
-                 * @param PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda $chunkTicking
+                 * @param PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9 $chunkTicking
                  *
                  * @throws ValidationException
                  *
                  * @return self
                  */
                 public function setChunkTicking(
-                    PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda $chunkTicking
+                    PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9 $chunkTicking
                 ): self {
                     if ($this->chunkTicking === $chunkTicking) {
                         return $this;
@@ -1152,7 +1152,7 @@ class PocketMineYml implements JSONModelInterface
 
                 $value = (function ($value) {
     try {
-        return is_array($value) ? new PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda($value) : $value;
+        return is_array($value) ? new PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9($value) : $value;
     } catch (\Exception $instantiationException) {
         
             throw new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
@@ -1191,10 +1191,10 @@ class PocketMineYml implements JSONModelInterface
                     }
                 
                     
-                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda)) {
+                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9)) {
                         throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'chunk-ticking',
-  1 => 'PocketMineYml_Chunktickingab75eb237ca2a7d748b28cadb3bc7cda',
+  1 => 'PocketMineYml_Chunktickingbc02e1e47200ddc4db3237695e7f68f9',
 ));
                     }
                 
@@ -2049,10 +2049,10 @@ class PocketMineYml implements JSONModelInterface
              *
              * Definitions for custom command aliases.
              *
-             * @return PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2|null
+             * @return PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082|null
              */
             public function getAliases()
-                : ?PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2
+                
             {
                 
 
@@ -2063,14 +2063,14 @@ class PocketMineYml implements JSONModelInterface
                 /**
                  * Set the value of aliases.
                  *
-                 * @param PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2|null $aliases Definitions for custom command aliases.
+                 * @param PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082|null $aliases Definitions for custom command aliases.
                  *
                  * @throws ValidationException
                  *
                  * @return self
                  */
                 public function setAliases(
-                    ?PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2 $aliases
+                     $aliases
                 ): self {
                     if ($this->aliases === $aliases) {
                         return $this;
@@ -2114,7 +2114,21 @@ class PocketMineYml implements JSONModelInterface
 
                 $value = array_key_exists('aliases', $modelData) ? $modelData['aliases'] : $this->aliases;
 
-                
+                $value = (function ($value) {
+    try {
+        return is_array($value) ? new PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082($value) : $value;
+    } catch (\Exception $instantiationException) {
+        
+            throw new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
+  0 => 'aliases',
+  1 => $instantiationException,
+));
+        
+
+        
+    }
+})($value)
+;
 
                 $this->aliases = $this->validateAliases($value, $modelData);
             }
@@ -2126,197 +2140,22 @@ class PocketMineYml implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = (function ($value) {
-    try {
-        return is_array($value) ? new PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2($value) : $value;
-    } catch (\Exception $instantiationException) {
-        
-            
-                throw $instantiationException;
-            
-        
-
-        
-    }
-})($value)
-;
-
-                
-                    
-                    if (!is_object($value)) {
+                    if (!is_object($value) && !is_null($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'aliases',
-  1 => 'object',
+  1 => 
+  array (
+    0 => 'object',
+    1 => 'null',
+  ),
 ));
                     }
                 
                     
-                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2)) {
+                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082)) {
                         throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'aliases',
-  1 => 'PocketMineYml_Aliasesaf607c42f876773b6737d8a61e41c1a2',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_null($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'aliases',
-  1 => 'null',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements === 1);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\OneOfException($value ?? null, ...array (
-  0 => 'aliases',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 'PocketMineYml_Aliasese7b0a1a021bfe9c54df4c710ba7f0082',
 ));
                     }
                 
@@ -2331,10 +2170,10 @@ class PocketMineYml implements JSONModelInterface
              *
              * Settings for loading and/or generating multiple worlds.
              *
-             * @return PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5|null
+             * @return PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0|null
              */
             public function getWorlds()
-                : ?PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5
+                
             {
                 
 
@@ -2345,14 +2184,14 @@ class PocketMineYml implements JSONModelInterface
                 /**
                  * Set the value of worlds.
                  *
-                 * @param PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5|null $worlds Settings for loading and/or generating multiple worlds.
+                 * @param PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0|null $worlds Settings for loading and/or generating multiple worlds.
                  *
                  * @throws ValidationException
                  *
                  * @return self
                  */
                 public function setWorlds(
-                    ?PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5 $worlds
+                     $worlds
                 ): self {
                     if ($this->worlds === $worlds) {
                         return $this;
@@ -2396,7 +2235,21 @@ class PocketMineYml implements JSONModelInterface
 
                 $value = array_key_exists('worlds', $modelData) ? $modelData['worlds'] : $this->worlds;
 
-                
+                $value = (function ($value) {
+    try {
+        return is_array($value) ? new PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0($value) : $value;
+    } catch (\Exception $instantiationException) {
+        
+            throw new \PHPModelGenerator\Exception\Object\NestedObjectException($value ?? null, ...array (
+  0 => 'worlds',
+  1 => $instantiationException,
+));
+        
+
+        
+    }
+})($value)
+;
 
                 $this->worlds = $this->validateWorlds($value, $modelData);
             }
@@ -2408,197 +2261,22 @@ class PocketMineYml implements JSONModelInterface
             {
                 
                     
-            $succeededCompositionElements = 0;
-            $compositionErrorCollection = [];
-        
-                    if (
-    $value !== null &&
-
-(function (&$value) use (
-    &$modelData,
-    &$modifiedModelData,
-    &$compositionErrorCollection,
-    &$succeededCompositionElements,
-    &$validatorIndex
-) {
-    $succeededCompositionElements = 2;
-    $validatorComponentIndex = 0;
-    $originalModelData = $value;
-    $originalPropertyValidationState = $this->_propertyValidationState ?? [];
-    $proposedValue = null;
-
-    
-
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                $value = (function ($value) {
-    try {
-        return is_array($value) ? new PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5($value) : $value;
-    } catch (\Exception $instantiationException) {
-        
-            
-                throw $instantiationException;
-            
-        
-
-        
-    }
-})($value)
-;
-
-                
-                    
-                    if (!is_object($value)) {
+                    if (!is_object($value) && !is_null($value)) {
                         throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
   0 => 'worlds',
-  1 => 'object',
+  1 => 
+  array (
+    0 => 'object',
+    1 => 'null',
+  ),
 ));
                     }
                 
                     
-                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5)) {
+                    if (is_object($value) && !($value instanceof \Exception) && !($value instanceof PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0)) {
                         throw new \PHPModelGenerator\Exception\Object\InvalidInstanceOfException($value ?? null, ...array (
   0 => 'worlds',
-  1 => 'PocketMineYml_Worlds045ae6cc713c091719bd81120f55baf5',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-        try {
-            // check if the state of the validator is already known.
-            // If none of the properties affected by the validator are changed the validator must not be re-evaluated
-            if (isset($validatorIndex) &&
-                isset($this->_propertyValidationState[$validatorIndex][$validatorComponentIndex]) &&
-                !array_intersect(
-                    array_keys($modifiedModelData),
-                    [
-                        
-                    ]
-                )
-            ) {
-                
-
-                if (
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] !== true
-                    
-                ) {
-                    throw new \Exception();
-                }
-            } else {
-                
-
-                
-
-                
-
-                
-                    
-                    if (!is_null($value)) {
-                        throw new \PHPModelGenerator\Exception\Generic\InvalidTypeException($value ?? null, ...array (
-  0 => 'worlds',
-  1 => 'null',
-));
-                    }
-                
-
-                
-
-                
-                    $proposedValue = $proposedValue ?? $value;
-                
-
-                
-                    if (isset($validatorIndex)) {
-                        $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = true;
-                    }
-                
-            }
-        } catch (\Exception $e) {
-            
-                if (isset($validatorIndex)) {
-                    $this->_propertyValidationState[$validatorIndex][$validatorComponentIndex] = false;
-                }
-            
-
-            
-
-            $succeededCompositionElements--;
-        }
-
-        $value = $originalModelData;
-        $validatorComponentIndex++;
-    
-
-    
-        $value = $proposedValue;
-    
-
-    
-
-    $result = !($succeededCompositionElements === 1);
-
-    if ($result) {
-        $this->_propertyValidationState = $originalPropertyValidationState;
-    }
-
-    return $result;
-})($value)
-) {
-                        throw new \PHPModelGenerator\Exception\ComposedValue\OneOfException($value ?? null, ...array (
-  0 => 'worlds',
-  1 => $succeededCompositionElements,
-  2 => $compositionErrorCollection,
+  1 => 'PocketMineYml_Worlds3f8fc28e865a99820549a40a466f05e0',
 ));
                     }
                 

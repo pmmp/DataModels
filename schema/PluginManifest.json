@@ -10,33 +10,24 @@
 	},
 	"properties": {
 		"api": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "string"
-					},
-					"type": "array"
-				},
-				{
-					"type": "string"
-				}
+			"items": {
+				"type": "string"
+			},
+			"type": [
+				"array",
+				"string"
 			],
 			"description": "The PocketMine-MP API version(s) supported by the plugin."
 		},
 		"author": {
 			"description": "The author name",
-			"anyOf": [
-				{
-					"type": "string"
-				},
-				{
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				}
+			"type": [
+				"array",
+				"string"
 			],
-			"type": "string"
+			"items": {
+				"type": "string"
+			}
 		},
 		"authors": {
 			"description": "The author names, will be appended to `author` if both are present.",
@@ -82,19 +73,15 @@
 			"type": "object"
 		},
 		"depend": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "string",
-						"pattern": "^[A-Za-z0-9 _.-]+$"
-					},
-					"type": "array"
-				},
-				{
-					"type": "string",
-					"pattern": "^[A-Za-z0-9 _.-]+$"
-				}
+			"items": {
+				"type": "string",
+				"pattern": "^[A-Za-z0-9 _.-]+$"
+			},
+			"type": [
+				"array",
+				"string"
 			],
+			"pattern": "^[A-Za-z0-9 _.-]+$",
 			"description": "List of plugins required by this plugin"
 		},
 		"description": {
@@ -102,33 +89,23 @@
 			"type": "string"
 		},
 		"extensions": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "string"
-					},
-					"type": "array"
-				},
-				{
-					"additionalProperties": {
-						"anyOf": [
-							{
-								"items": {
-									"type": "string"
-								},
-								"type": "array"
-							},
-							{
-								"type": "string"
-							}
-						]
-					},
-					"type": "object"
-				},
-				{
+			"type": [
+				"array",
+				"object",
+				"string"
+			],
+			"items": {
+				"type": "string"
+			},
+			"additionalProperties": {
+				"type": [
+					"array",
+					"string"
+				],
+				"items": {
 					"type": "string"
 				}
-			],
+			},
 			"description": "List of extensions (and their version constraints) required by this plugin"
 		},
 		"load": {
@@ -140,19 +117,15 @@
 			"type": "string"
 		},
 		"loadbefore": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "string",
-						"pattern": "^[A-Za-z0-9 _.-]+$"
-					},
-					"type": "array"
-				},
-				{
-					"type": "string",
-					"pattern": "^[A-Za-z0-9 _.-]+$"
-				}
+			"type": [
+				"array",
+				"string"
 			],
+			"items": {
+				"type": "string",
+				"pattern": "^[A-Za-z0-9 _.-]+$"
+			},
+			"pattern": "^[A-Za-z0-9 _.-]+$",
 			"description": "Plugins that this plugin must load before, if present"
 		},
 		"main": {
@@ -161,17 +134,13 @@
 			"type": "string"
 		},
 		"mcpe-protocol": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "integer"
-					},
-					"type": "array"
-				},
-				{
-					"type": "integer"
-				}
+			"type": [
+				"array",
+				"integer"
 			],
+			"items": {
+				"type": "integer"
+			},
 			"description": "MCPE protocol versions supported by the plugin"
 		},
 		"name": {
@@ -180,17 +149,13 @@
 			"type": "string"
 		},
 		"os": {
-			"oneOf": [
-				{
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				{
-					"type": "string"
-				}
-			]
+			"type": [
+				"array",
+				"string"
+			],
+			"items": {
+				"type": "string"
+			}
 		},
 		"permissions": {
 			"description": "Permissions to be registered by this plugin automatically",
@@ -235,19 +200,16 @@
 			"type": "string"
 		},
 		"softdepend": {
-			"anyOf": [
-				{
-					"items": {
-						"type": "string",
-						"pattern": "^[A-Za-z0-9 _.-]+$"
-					},
-					"type": "array",
-					"pattern": "^[A-Za-z0-9 _.-]+$"
-				},
-				{
-					"type": "string"
-				}
+			"type": [
+				"array",
+				"string"
 			],
+			"items": {
+				"type": "string",
+				"pattern": "^[A-Za-z0-9 _.-]+$"
+			},
+			"type": "array",
+			"pattern": "^[A-Za-z0-9 _.-]+$",
 			"description": "Plugins that must load before this plugin, if available"
 		},
 		"src-namespace-prefix": {
@@ -256,13 +218,9 @@
 		},
 		"version": {
 			"description": "Plugin version",
-			"anyOf": [
-				{
-					"type": "string"
-				},
-				{
-					"type": "number"
-				}
+			"type": [
+				"string",
+				"number"
 			]
 		},
 		"website": {
