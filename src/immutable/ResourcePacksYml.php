@@ -54,6 +54,8 @@ class ResourcePacksYml implements JSONModelInterface
         
 
         
+            $this->executeBaseValidators($modelData);
+        
 
         
             
@@ -72,6 +74,32 @@ class ResourcePacksYml implements JSONModelInterface
         
     }
 
+    
+        private function executeBaseValidators(array &$modelData): void
+        {
+            $value = &$modelData;
+
+            
+                
+                if ($additionalProperties =  (function () use ($modelData): array {
+    $additionalProperties = array_diff(array_keys($modelData), array (
+   'force_resources',
+   'resource_stack',
+));
+
+    
+
+    return $additionalProperties;
+})()) {
+                    throw new \PHPModelGenerator\Exception\Object\AdditionalPropertiesException($value ?? null, ...array (
+  0 => 'ResourcePacksYml',
+  1 => $additionalProperties,
+));
+                }
+            
+
+            
+        }
     
 
     /**
