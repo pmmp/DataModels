@@ -1,0 +1,18 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"force_resources": {
+			"type": "boolean",
+			"description": "Whether players must use the listed resource packs to join the server",
+			"default": false
+		},
+		"resource_stack": {
+			"type": ["array", "null"],
+			"items": {
+				"type": "string"
+			},
+			"default": null
+		}
+	}
+}

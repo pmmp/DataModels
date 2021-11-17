@@ -8,3 +8,4 @@ At the time of writing, this includes models for the following:
 - `server.properties`
 - `pocketmine.yml`
 - `plugin.yml` in plugins
+- `resource_packs.yml`
